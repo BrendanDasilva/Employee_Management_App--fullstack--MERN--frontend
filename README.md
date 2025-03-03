@@ -1,74 +1,113 @@
 ### See backend here: https://github.com/BrendanDasilva/fullstackdev-I--backend
 
+# **COMP3123 Full Stack Development - Frontend**
 
+## **Project Overview**
+This project is the **frontend** for the **COMP3123 Full Stack Development** assignment. It is built using **React.js** and provides a user-friendly interface for managing users and employees. The frontend communicates with the backend API using **Axios** for HTTP requests.
 
-# Getting Started with Create React App
+The application supports:
+- **User Authentication** (Signup, Login, JWT-based authentication)
+- **Employee Management** (CRUD operations on employee data)
+- **Navigation and UI Components** (Navbar, Forms, Lists)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## **Features**
+### **User Management**
+✅ User signup and login with JWT authentication  
+✅ Persistent authentication using local storage  
+✅ Secure login with protected routes  
 
-## Available Scripts
+### **Employee Management**
+✅ Retrieve and display a list of employees  
+✅ Add a new employee  
+✅ View employee details  
+✅ Update employee details  
+✅ Delete an employee  
+✅ Search employees by **department** or **position**  
 
-In the project directory, you can run:
+## **Technologies Used**
+- **Frontend Framework:** React.js (Vite)
+- **State Management:** useState, useEffect (React Hooks)
+- **Routing:** React Router
+- **API Calls:** Axios (with `axiosConfig.js` for base URL handling)
+- **Styling:** CSS
+- **Authentication:** JWT stored in local storage
 
-### `npm start`
+## **Installation & Setup**
+### **1. Clone the Repository**
+```sh
+git clone https://github.com/your-repository-link.git
+cd your-repository-folder
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### **2. Install Dependencies**
+```sh
+npm install
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### **3. Setup Environment Variables**
+Create a `.env` file in the root directory and define the following:
+```sh
+REACT_APP_BACKEND_URL=http://localhost:3000/api/v1
+```
 
-### `npm test`
+### **4. Run the Frontend**
+```sh
+npm run dev
+```
+The frontend should now be running on `http://localhost:5173`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## **Folder Structure**
+```
+📂 project-root/
+├── 📂 src/
+│   ├── 📂 components/          # UI components
+│   │   ├── AddEmployee.jsx
+│   │   ├── EmployeeDetails.jsx
+│   │   ├── EmployeeList.jsx
+│   │   ├── UpdateEmployee.jsx
+│   │   ├── Navbar.jsx
+│   │   ├── Login.jsx
+│   │   ├── Signup.jsx
+│   ├── App.jsx                 # Main application component
+│   ├── index.js                # React entry point
+│   ├── axiosConfig.js          # Axios base URL configuration
+├── 📂 public/                   # Static assets
+├── 📂 styles/                   # CSS files
+├── package.json                 # Dependencies
+├── .env.example                 # Example environment file
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## **API Integration**
+This frontend interacts with the backend API through **Axios**. The base URL is defined in `axiosConfig.js`:
+```js
+import axios from "axios";
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+const apiClient = axios.create({
+  baseURL: process.env.REACT_APP_BACKEND_URL || "http://localhost:3000/api/v1",
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
 
-### `npm run eject`
+export default apiClient;
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+All API requests are made using `apiClient`, ensuring a centralized configuration for base URLs and headers.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## **Future Enhancements**
+🔹 Improve UI styling with a design library (e.g., Material-UI, TailwindCSS)  
+🔹 Implement role-based authentication (Admin/User)  
+🔹 Add pagination for employee list  
+🔹 Enhance error handling with better user feedback  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## **Contributors**
+- **Brendan Dasilva** - *Full Stack Developer*
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
