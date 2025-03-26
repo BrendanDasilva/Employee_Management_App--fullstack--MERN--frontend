@@ -1,4 +1,4 @@
-### See backend here: https://github.com/BrendanDasilva/fullstackdev-I--backend
+### See backend here: https://github.com/BrendanDasilva/Employee_Management_App--fullstack--MERN--backend
 
 # **COMP3123 Full Stack Development - Frontend**
 
